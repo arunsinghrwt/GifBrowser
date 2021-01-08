@@ -1,4 +1,4 @@
-package com.example.gifbrowser
+package com.arun.gifbrowser
 
 import org.junit.Test
 

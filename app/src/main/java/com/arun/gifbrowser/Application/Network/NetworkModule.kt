@@ -4,7 +4,7 @@ import android.animation.ObjectAnimator
 import androidx.multidex.BuildConfig
 import com.arun.gifbrowser.Application.Utility.Constants
 import com.arun.gifbrowser.Application.Utility.showProgressAnim
-import com.example.gifbrowser.R
+import com.arun.gifbrowser.R
 import com.google.android.material.button.MaterialButton
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
@@ -13,6 +13,12 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.reflect.Modifier
+/**
+ *Created by Arun singh rawat on 08-01-2021.
+ *https://github.com/arunsinghrwt
+
+ */
+
 
 
      fun returnProvideRetrofit(): Retrofit {

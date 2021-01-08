@@ -2,7 +2,12 @@ package com.arun.gifbrowser.Application.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.gifbrowser.R
+import com.arun.gifbrowser.R
+/**
+ *Created by Arun singh rawat on 08-01-2021.
+ *https://github.com/arunsinghrwt
+
+ */
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

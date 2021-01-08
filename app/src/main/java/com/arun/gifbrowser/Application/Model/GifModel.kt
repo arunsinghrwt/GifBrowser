@@ -4,5 +4,4 @@ import java.io.Serializable
 
 class GifModel : Serializable {
     var data = ArrayList<GifList>()
-
 }
