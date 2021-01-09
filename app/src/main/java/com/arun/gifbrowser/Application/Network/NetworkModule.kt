@@ -1,6 +1,7 @@
 package com.arun.gifbrowser.Application.Network
 
 import android.animation.ObjectAnimator
+import android.widget.LinearLayout
 import androidx.multidex.BuildConfig
 import com.arun.gifbrowser.Application.Utility.Constants
 import com.arun.gifbrowser.Application.Utility.showProgressAnim
@@ -19,9 +20,7 @@ import java.lang.reflect.Modifier
 
  */
 
-
-
-     fun returnProvideRetrofit(): Retrofit {
+fun returnProvideRetrofit(): Retrofit {
         val logging = HttpLoggingInterceptor()
 
         if (BuildConfig.DEBUG) {
@@ -54,19 +53,19 @@ import java.lang.reflect.Modifier
 
     class PbrBtn {
         var objectAnimator: ObjectAnimator? = null
-        var mybtn: MaterialButton? = null
-        fun init(btn: MaterialButton) {
+        var mybtn: LinearLayout? = null
+        fun init(btn: LinearLayout) {
             this.mybtn = btn
         }
 
         fun start() {
             objectAnimator?.cancel()
-            mybtn?.setIconResource(R.drawable.animated_progress)
-            this.objectAnimator = mybtn?.icon?.showProgressAnim()
+            mybtn?.setBackgroundResource(R.drawable.animated_progress)
+            objectAnimator?.start()
         }
 
         fun cancel(defaulticon: Int = 0) {
-            mybtn?.setIconResource(defaulticon)
+            mybtn?.setBackgroundResource(defaulticon)
             objectAnimator?.cancel()
         }
     }

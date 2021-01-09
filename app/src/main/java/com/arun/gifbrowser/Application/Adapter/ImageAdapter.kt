@@ -3,6 +3,7 @@ package com.arun.gifbrowser.Application.Adapter
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,39 +27,56 @@ import kotlinx.android.synthetic.main.image_row.view.*
 class ImageAdapter(internal val context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
     var list  = ArrayList<GifList>()
     private val glide: RequestManager = Glide.with(context)
-    internal lateinit var imageOnClickListner: ImageOnClickListner
-    interface ImageOnClickListner {
+       internal  lateinit var imageOnClick: ImageOnClick
+    interface ImageOnClick {
         fun imageClick(
             pos: Int,
             image: GifList
         )
     }
-    fun setImageOnClickListner(imageOnClickListner: ImageOnClickListner) {
-        this.imageOnClickListner = imageOnClickListner
+    fun setImageOnClick(imageOnClick: ImageOnClick) {
+        this.imageOnClick = imageOnClick
     }
+
+
+    fun addList(gifArrayList: ArrayList<GifList>) {
+        Log.e("Add first", "first " + gifArrayList.size)
+        this.list.addAll(gifArrayList)
+        notifyDataSetChanged()
+    }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return  ViewHolder(LayoutInflater.from(context).inflate(R.layout.image_row,parent,false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        var url: String = list[position].url
-        glide.load(url)
-            .placeholder(ColorDrawable(Color.GRAY))
-            .error(ColorDrawable(Color.GRAY))
-            .thumbnail(
-                glide.load(url).override(300)
+        var url: String = list[position].images.original.url
+        Log.e("url", "---->>>$url")
+
+        try {
+
+            Glide.with(context) // replace with 'this' if it's in activity
+                    .load("http://www.google.com/.../image.gif")
+                    .asGif()
+                    .error(R.drawable.error_image) // show error drawable if the image is not a gif
+                    .into(R.id.imageView);
+
+            glide.load(url)
+                    .placeholder(ColorDrawable(Color.GRAY))
+                    .error(ColorDrawable(Color.GRAY))
+
+                    .thumbnail(
+                            glide.load(url).override(300)
+                                    .transform(CenterCrop())
+                    )
                     .transform(CenterCrop())
-            )
-            .transform(CenterCrop())
-            .transition(DrawableTransitionOptions.withCrossFade())
-            .diskCacheStrategy(DiskCacheStrategy.ALL)
-            .into(holder.itemView.imageView)
-
-    }
-
-    private fun imagebind(url: String) {
-
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(holder.itemView.imageView)
+        }catch (ex:Exception){
+            Log.e("ex","--->>"+ex)
+        }
 
 
     }
@@ -73,7 +91,7 @@ class ImageAdapter(internal val context: Context) : androidx.recyclerview.widget
                itemView.imageView.setOnClickListener(this)
         }
         override fun onClick(v: View?) {
-            imageOnClickListner.imageClick(adapterPosition, list[adapterPosition])
+            imageOnClick.imageClick(adapterPosition, list[adapterPosition])
         }
 
         }

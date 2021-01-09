@@ -12,14 +12,12 @@ import retrofit2.http.Query
  */
 
 interface ApiInterface {
-
-
-   //get gif files
+    //get gif files
     @GET("/v1/gifs/trending")
     @Headers("Content-Type:application/json")
-    open fun fetchPartialDetails(
+    fun fetchDetails(
        @Query("api_key") api_key: String?,
-       @Query("limit") limit: Int?
+       @Query("limit") limit: String?,   @Query("rating") rating: String?
    ): Flowable<GifModel>?
 
 

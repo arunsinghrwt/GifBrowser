@@ -8,9 +8,13 @@
     tools:context="com.arun.gifbrowser.Application.Activity.MainActivity">
 
    <LinearLayout
+       android:id="@+id/myView"
        android:layout_width="match_parent"
        android:orientation="vertical"
        android:layout_height="match_parent">
+
+
+
 
  <TextView
      android:layout_width="match_parent"

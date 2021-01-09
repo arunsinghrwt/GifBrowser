@@ -21,7 +21,7 @@ class SquareImageView@JvmOverloads constructor(
     context!!, attrs, defStyleAttr
 ) {
 
-    private val radius = 18.0f
+    private val radius = 5.0f
     private var path = Path()
     private var rect: RectF? = null
 
