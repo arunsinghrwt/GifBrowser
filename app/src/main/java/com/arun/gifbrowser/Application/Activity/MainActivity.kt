@@ -10,6 +10,7 @@ import com.arun.gifbrowser.Application.Adapter.ImageAdapter
 import com.arun.gifbrowser.Application.Model.GifList
 import com.arun.gifbrowser.Application.Model.ViewModelGif
 import com.arun.gifbrowser.Application.Network.PbrBtn
+import com.arun.gifbrowser.Application.Utility.GlideApp
 import com.arun.gifbrowser.Application.Utility.getGridLayoutManager
 import com.arun.gifbrowser.R
 import kotlinx.android.synthetic.main.activity_main.*
@@ -58,7 +59,9 @@ class MainActivity : AppCompatActivity(), ImageAdapter.ImageOnClick {
     }
 
     private fun initAdapter() {
-        imageAdapter = ImageAdapter(applicationContext)
+
+        val glide = GlideApp.with(this)
+        imageAdapter = ImageAdapter(glide , applicationContext )
         imageAdapter.setImageOnClick(this)
         manager = getGridLayoutManager(Configuration.ORIENTATION_PORTRAIT, imageAdapter)
         main_recycle.apply {

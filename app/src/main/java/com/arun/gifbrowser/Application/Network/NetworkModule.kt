@@ -61,7 +61,7 @@ fun returnProvideRetrofit(): Retrofit {
         fun start() {
             objectAnimator?.cancel()
             mybtn?.setBackgroundResource(R.drawable.animated_progress)
-            objectAnimator?.start()
+            this.objectAnimator = mybtn!!.background.showProgressAnim()
         }
 
         fun cancel(defaulticon: Int = 0) {

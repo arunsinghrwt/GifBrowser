@@ -8,14 +8,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.arun.gifbrowser.Application.Model.GifList
+import com.arun.gifbrowser.Application.Utility.GlideRequests
 import com.arun.gifbrowser.R
-
-import com.bumptech.glide.Glide
-import com.bumptech.glide.RequestManager
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.bumptech.glide.signature.ObjectKey
+
+
 import kotlinx.android.synthetic.main.image_row.view.*
 
 
@@ -24,9 +23,9 @@ import kotlinx.android.synthetic.main.image_row.view.*
  *https://github.com/arunsinghrwt
 
  */
-class ImageAdapter(internal val context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
+class ImageAdapter(  var glideRequests: GlideRequests, internal val context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
     var list  = ArrayList<GifList>()
-    private val glide: RequestManager = Glide.with(context)
+
        internal  lateinit var imageOnClick: ImageOnClick
     interface ImageOnClick {
         fun imageClick(
@@ -55,21 +54,10 @@ class ImageAdapter(internal val context: Context) : androidx.recyclerview.widget
         Log.e("url", "---->>>$url")
 
         try {
-
-            Glide.with(context) // replace with 'this' if it's in activity
-                    .load("http://www.google.com/.../image.gif")
-                    .asGif()
-                    .error(R.drawable.error_image) // show error drawable if the image is not a gif
-                    .into(R.id.imageView);
-
-            glide.load(url)
+            glideRequests.load(url)
                     .placeholder(ColorDrawable(Color.GRAY))
                     .error(ColorDrawable(Color.GRAY))
-
-                    .thumbnail(
-                            glide.load(url).override(300)
-                                    .transform(CenterCrop())
-                    )
+                    .thumbnail(glideRequests.load(url).override(300).transform(CenterCrop()))
                     .transform(CenterCrop())
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
