@@ -23,14 +23,14 @@ import kotlinx.android.synthetic.main.image_row.view.*
  *https://github.com/arunsinghrwt
 
  */
-class ImageAdapter(  var glideRequests: GlideRequests, internal val context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
+class ImageAdapter(var glideRequests: GlideRequests, internal val context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
     var list  = ArrayList<GifList>()
 
        internal  lateinit var imageOnClick: ImageOnClick
     interface ImageOnClick {
         fun imageClick(
-            pos: Int,
-            image: GifList
+                pos: Int,
+                image: GifList
         )
     }
     fun setImageOnClick(imageOnClick: ImageOnClick) {
@@ -45,8 +45,13 @@ class ImageAdapter(  var glideRequests: GlideRequests, internal val context: Con
     }
 
 
+    fun removeList(){
+        val leadStatusItem = GifList()
+        this.list.removeAll(listOf(leadStatusItem))
+        notifyDataSetChanged()
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return  ViewHolder(LayoutInflater.from(context).inflate(R.layout.image_row,parent,false))
+        return  ViewHolder(LayoutInflater.from(context).inflate(R.layout.image_row, parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -62,8 +67,8 @@ class ImageAdapter(  var glideRequests: GlideRequests, internal val context: Con
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(holder.itemView.imageView)
-        }catch (ex:Exception){
-            Log.e("ex","--->>"+ex)
+        }catch (ex: Exception){
+            Log.e("ex", "--->>" + ex)
         }
 
 
@@ -72,7 +77,7 @@ class ImageAdapter(  var glideRequests: GlideRequests, internal val context: Con
     override fun getItemCount(): Int {
      return  list.size
     }
-    inner class ViewHolder (view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view),
+    inner class ViewHolder(view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view),
         View.OnClickListener {
         init {
                itemView.setOnClickListener(this)
