@@ -6,7 +6,7 @@ package com.arun.gifbrowser.Application.Utility
  */
 object Constants {
      val BASE_URL: String = " https://api.giphy.com/"
-     val API_KEY : String = ""
+     val API_KEY : String = "ZOGwSJ26NoSq6Ms540hblZnxZ19KCPuX"
      var HeightPX = 0
      var WidthPX = 0
      var DENSITY = 0f
