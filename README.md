@@ -1,5 +1,5 @@
 # GifBrowse
-Android Application sample based on Mvvm, Koin, LiveData, Paging, AndroidX Preference & Coroutines. It requires an [giphy.com](https://giphy.com/) API Client ID which has to be added in [Constants.kt](GifBrowser/app/src/main/java/com/arun/gifbrowser/Application/Utility/Constants.kt)
+Android Application sample based on Mvvm, Koin, Paging, AndroidX Preference & Coroutines. It requires an [giphy.com](https://giphy.com/) API Client ID which has to be added in [Constants.kt](GifBrowser/app/src/main/java/com/arun/gifbrowser/Application/Utility/Constants.kt)
 ## It contains
 1. **Home Page**
   * List of the images retrieved via giphy Api
