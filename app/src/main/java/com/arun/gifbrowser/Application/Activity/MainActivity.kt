@@ -139,7 +139,6 @@ class MainActivity : AppCompatActivity(), ImageAdapter.ImageOnClick,
     }
 
     override fun onRefresh() {
-        Toast.makeText(applicationContext,"Refreshed",Toast.LENGTH_SHORT).show()
         imageAdapter.removeList()
         mainModel.getGifImageList()
 
