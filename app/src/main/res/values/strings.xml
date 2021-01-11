@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">Gif Browser</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="detail">Details</string>
+    <string name="main_image">main image</string>
+
+    <string name="source">source</string>
+    <string name="tittle">Tittle</string>
+    <string name="rating">Rating</string>
+    <string name="height">Height</string>
+    <string name="weight">Width</string>
+    <string name="size">Type</string>
+
 </resources>

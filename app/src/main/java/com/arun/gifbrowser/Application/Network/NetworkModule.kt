@@ -2,6 +2,8 @@ package com.arun.gifbrowser.Application.Network
 
 import android.animation.ObjectAnimator
 import android.widget.LinearLayout
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.multidex.BuildConfig
 import com.arun.gifbrowser.Application.Utility.Constants
 import com.arun.gifbrowser.Application.Utility.showProgressAnim
@@ -53,8 +55,8 @@ fun returnProvideRetrofit(): Retrofit {
 
     class PbrBtn {
         var objectAnimator: ObjectAnimator? = null
-        var mybtn: LinearLayout? = null
-        fun init(btn: LinearLayout) {
+        var mybtn: TextView? = null
+        fun init(btn: TextView) {
             this.mybtn = btn
         }
 

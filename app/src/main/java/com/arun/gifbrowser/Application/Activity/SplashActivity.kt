@@ -17,18 +17,16 @@ import com.arun.gifbrowser.R
 
 class SplashActivity : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_activty)
-
-
         mainActivity()
     }
 
     private fun mainActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             var intent  = Intent(this, MainActivity::class.java)
-            startActivity(intent) },1000)
+            startActivity(intent)
+            this.finish() },1000)
     }
 }

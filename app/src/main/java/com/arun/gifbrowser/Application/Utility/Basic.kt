@@ -5,6 +5,7 @@ import android.animation.ValueAnimator
 import android.content.Context
 import android.content.res.Configuration
 import android.graphics.drawable.Drawable
+import android.util.DisplayMetrics
 import android.view.animation.LinearInterpolator
 import androidx.recyclerview.widget.GridLayoutManager
 import com.arun.gifbrowser.Application.Adapter.ImageAdapter
@@ -49,4 +50,9 @@ fun Context.getGridLayoutManager(
             }
         }
     }
+}
+fun DisplayMetrics.getScreenSize() {
+    Constants.HeightPX = heightPixels
+    Constants.WidthPX = widthPixels
+    Constants.DENSITY = density
 }

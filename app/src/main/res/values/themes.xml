@@ -1,16 +1,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/lightblackcolor</item>
-        <item name="colorPrimaryVariant">@color/lightblackcolor</item>
-        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/lightblackcolor</item>
+        <item name="colorAccent">@color/lightblackcolor</item>
+        <item name="toolbarStyle">@style/AppTheme.Toolbar</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_700</item>
-        <item name="colorOnSecondary">@color/black</item>
+
         <item name = "android:fontFamily">@font/opensanslight</item>
         <!-- Status bar color. -->
         <!-- Customize your theme here. -->
     </style>
+
+
+
+
+    <style name="AppTheme.Toolbar" parent="Widget.MaterialComponents.Toolbar">
+        <item name="titleTextAppearance">@style/TextAppearance.App.Headline6</item>
+    </style>
+
+    <style name="TextAppearance.App.Headline6" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/opensanslight</item>
+        <item name="android:fontFamily">@font/opensanslight</item>
+    </style>
+
 </resources>
