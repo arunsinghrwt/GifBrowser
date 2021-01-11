@@ -7,6 +7,14 @@ Android Application sample based on Mvvm, Koin, LiveData, Paging, AndroidX Prefe
 2. **Inner page**
   * Full width view of selected image
   * view of details retried from api
+  
+  
+  <div>
+  <img float=left width=24% src="splash screen.png">
+  <img float=left width=24% src="home page.png">
+  <img float=left width=24% src="single inner image.png">
+  <img float=left width=24% src="app interface (2).gif">
+</div>
 
 ## Features
 1. ***MVVM*** architecture pattern
